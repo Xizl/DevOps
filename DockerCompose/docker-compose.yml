@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+
+  Dev:
+    build: Dev/
+    volumes:
+      - ./vol:./vol
+
+  
+  Prod:
+
+    build: Prod/
+    ports:
+      - 80:8080
+
+    volumes_from:
+      - "Dev"
+
+    depends_on:
+      - dev
